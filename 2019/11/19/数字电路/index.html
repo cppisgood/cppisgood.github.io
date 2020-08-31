@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+  <link rel="mask-icon" href="/images/logo.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"bounceDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="数字电路">
+<meta name="keywords" content="笔记,数字电路">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字电路笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;19&#x2F;%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF&#x2F;index.html">
+<meta property="og:site_name" content="Zmm的博客">
+<meta property="og:description" content="数字电路">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;dFlwNRSCgaXijqE.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;kLOsmqgNAdIpBET.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;CeythnRzo3QkAxm.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;lNgzTPm2s1qjh4C.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;FdKTA8B9ctMjJka.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;tZDQxP8lHA4g5R9.png">
+<meta property="og:updated_time" content="2019-11-19T14:14:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;28&#x2F;dFlwNRSCgaXijqE.png">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/19/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>数字电路笔记 | Zmm的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zmm的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zmm">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zmm的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数字电路笔记
+        </h1>
+
+        <div class="post-meta">
+	        
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-19 22:14:00" itemprop="dateCreated datePublished" datetime="2019-11-19T22:14:00+08:00">2019-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E6%A0%A1%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index">
+                    <span itemprop="name">学校课程</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/11/19/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.3k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="数字电路"><a href="#数字电路" class="headerlink" title="数字电路"></a>数字电路</h1><a id="more"></a>
+
+<p>离散的电压序列处理信息</p>
+<ol>
+<li>分层结构</li>
+<li>可复用接口</li>
+<li>小代价</li>
+<li>可靠</li>
+<li>可扩展</li>
+</ol>
+<h2 id="信息与编码"><a href="#信息与编码" class="headerlink" title="信息与编码"></a>信息与编码</h2><h3 id="数制"><a href="#数制" class="headerlink" title="数制"></a>数制</h3><p>补码</p>
+<p>小数补码加1加在最后一位</p>
+<h3 id="码制"><a href="#码制" class="headerlink" title="码制"></a>码制</h3><ol>
+<li>ascii码 7位</li>
+</ol>
+<h2 id="逻辑代数基础"><a href="#逻辑代数基础" class="headerlink" title="逻辑代数基础"></a>逻辑代数基础</h2><p>与、或、非、与非、或非、与或非、异或、同或</p>
+<h3 id="基本公式"><a href="#基本公式" class="headerlink" title="基本公式"></a>基本公式</h3><ol>
+<li>(AB)’=A’+B’</li>
+<li>A+BC=(A+B)(A+C)</li>
+<li>(A+B)’=A’B’</li>
+<li>AB+A’C+BCDEF=AB+A’C</li>
+</ol>
+<h3 id="基本定理"><a href="#基本定理" class="headerlink" title="基本定理"></a>基本定理</h3><ol>
+<li>代入定理</li>
+<li>反演定理</li>
+</ol>
+<h3 id="逻辑函数表达方式"><a href="#逻辑函数表达方式" class="headerlink" title="逻辑函数表达方式"></a>逻辑函数表达方式</h3><ol>
+<li><p>真值表</p>
+<p>左输入，右输出</p>
+</li>
+<li><p>逻辑式</p>
+<p>逻辑变量取值只有01</p>
+<p>尽量变短</p>
+</li>
+<li><p>逻辑图</p>
+</li>
+<li><p>波形图</p>
+<p>长度=2^n^</p>
+</li>
+<li><p>卡诺图</p>
+</li>
+</ol>
+<h3 id="逻辑函数标准形式"><a href="#逻辑函数标准形式" class="headerlink" title="逻辑函数标准形式"></a>逻辑函数标准形式</h3><p>最小项m</p>
+<blockquote>
+<p>乘积形式</p>
+<p>所有最小项之和为1</p>
+<p>任意最小项只积为0</p>
+</blockquote>
+<p>最大项M</p>
+<blockquote>
+<p>和形式</p>
+</blockquote>
+<p>最小项对应真值表某一行取1的情况</p>
+<p>最大项对应真值表某一行取0的情况</p>
+<p>任意逻辑函数可以表示为最小项之和或最大项之积</p>
+<p>$Y = \sum{m_i} = \prod \limits_{j\neq i}{M_j}$</p>
+<h3 id="逻辑函数的化简"><a href="#逻辑函数的化简" class="headerlink" title="逻辑函数的化简"></a>逻辑函数的化简</h3><p>与项少、短 </p>
+<ol>
+<li><p>公式化简</p>
+</li>
+<li><p>卡诺图（折叠）（5变量以上一般不用）（化简结果不唯一）</p>
+<p>任意项：对逻辑函数的值无关</p>
+<p>约束项：不可以取到的项</p>
+<p>在公式中加入所有无关项来化简函数</p>
+</li>
+<li><p>Q-M</p>
+</li>
+</ol>
+<h2 id="门电路"><a href="#门电路" class="headerlink" title="门电路"></a>门电路</h2><p>数字电路用离散的电压信号表示信息</p>
+<p>电压信号优点：</p>
+<ol>
+<li>易观测</li>
+<li>功耗可以很低</li>
+</ol>
+<p>缺点： </p>
+<ol>
+<li>容易被环境影响</li>
+<li>离散的电压序列需要直流电</li>
+<li>需要快速脉冲</li>
+</ol>
+<p><strong>数字器件能够接收低质量信号，输出高质量信号</strong></p>
+<p>二极管逻辑电路缺点：电平有偏移、负载能力差</p>
+<h3 id="coms反向器动态特性"><a href="#coms反向器动态特性" class="headerlink" title="coms反向器动态特性"></a>coms反向器动态特性</h3><p>传输延迟时间</p>
+<p>功耗=静态（很低）+动态（导通功耗+负载功耗）</p>
+<p>nmos管下拉（衬底源极接地）</p>
+<p>pmos管上拉（衬底源极接高电平）</p>
+<h3 id="OD门"><a href="#OD门" class="headerlink" title="OD门"></a>OD门</h3><p>与非门的最后缓冲反向器的Pmos管换成外接电源（带电阻）</p>
+<h3 id="传输门"><a href="#传输门" class="headerlink" title="传输门"></a>传输门</h3><p>模拟开关</p>
+<h3 id="三态门"><a href="#三态门" class="headerlink" title="三态门"></a>三态门</h3><p>0、1、高阻</p>
+<p>总线中经常用</p>
+<h3 id="TTL门电路"><a href="#TTL门电路" class="headerlink" title="TTL门电路"></a>TTL门电路</h3><p>用双极性三极管(NPN)</p>
+<h2 id="组合逻辑电路"><a href="#组合逻辑电路" class="headerlink" title="组合逻辑电路"></a>组合逻辑电路</h2><p>输入仅取决于输入</p>
+<p>不含存储元件</p>
+<p>*<em>物理量-&gt;编码-&gt;处理-&gt;译码-&gt;物理量 *</em></p>
+<h3 id="编码器"><a href="#编码器" class="headerlink" title="编码器"></a>编码器</h3><p>将输入的每个高低电平转化为一位二进制代码</p>
+<ol>
+<li><p>普通编码器</p>
+<p>同时只能处理一个</p>
+</li>
+<li><p>优先编码器</p>
+<p>eg:74HC148、8-3编码器</p>
+</li>
+</ol>
+<h3 id="译码器"><a href="#译码器" class="headerlink" title="译码器"></a>译码器</h3><ol>
+<li><p>二进制译码器</p>
+<p>eg：3-8译码器、74HC138</p>
+</li>
+<li><p>十进制译码器</p>
+<p>eg：7448</p>
+</li>
+</ol>
+<h3 id="数据选择器"><a href="#数据选择器" class="headerlink" title="数据选择器"></a>数据选择器</h3><p>eg：74HC153 </p>
+<p>MUX</p>
+<p>具有n位地址输入的数据选择器，至少可以产生n输入变量不大于n+1的组合函数</p>
+<p>注意数据端和地址端的分配</p>
+<h3 id="加法器"><a href="#加法器" class="headerlink" title="加法器"></a>加法器</h3><ol>
+<li><p>半加器</p>
+<p>不考虑来自低位的进位，输出不考虑进位的加法结果和是否进位</p>
+</li>
+<li><p>全加器</p>
+<p>考虑来自低位的进位，输出不考虑进位的加法结果和是否进位</p>
+</li>
+<li><p>超前进位加法器</p>
+<p>直接由各个输入算出答案，等待延迟时间短，模块化设计差，复用性差</p>
+</li>
+</ol>
+<h3 id="竞争-冒险现象"><a href="#竞争-冒险现象" class="headerlink" title="竞争-冒险现象"></a>竞争-冒险现象</h3><p>输入在变化的时候在短暂时间内由于输入的传输延迟时间，产生了短暂的错误的输出</p>
+<p>输出函数在一定条件下可以整理为Y=A+A‘或Y=AA’时会存在传输延迟时间，所以会存在竞争冒险现象</p>
+<p>卡诺图在画圈时相切则一定会出现竞争冒险现象</p>
+<p>消除方法：</p>
+<ol>
+<li>接入滤波电容</li>
+<li>引入选通脉冲（在电路稳定的时候再把输入跟输出接通）</li>
+<li>修改逻辑设计 </li>
+</ol>
+<h2 id="时序逻辑电路"><a href="#时序逻辑电路" class="headerlink" title="时序逻辑电路"></a>时序逻辑电路</h2><p>load信号控制存储电路状态</p>
+<h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h3><ol>
+<li>用于记忆一位二进制信号<ol>
+<li>有两个能自行保持的状态</li>
+<li>能根据输入信号置成0或者1</li>
+</ol>
+</li>
+<li>分类<ol>
+<li>按触发方式（电平，脉冲，边沿）</li>
+<li>按逻辑功能（RS，JK，D，T，T‘）</li>
+</ol>
+</li>
+</ol>
+<h4 id="电平触发的触发器"><a href="#电平触发的触发器" class="headerlink" title="电平触发的触发器"></a>电平触发的触发器</h4><p>SR锁存器</p>
+<p><img src="https://i.loli.net/2019/11/28/dFlwNRSCgaXijqE.png" alt="SR锁存器"></p>
+<p>S、R是同步信号（跟时钟周期有关的输入）</p>
+<p>S’<del>D</del> 是异步信号</p>
+<p>D触发器</p>
+<p><img src="https://i.loli.net/2019/11/28/kLOsmqgNAdIpBET.png" alt="D触发器"></p>
+<h4 id="脉冲触发的触发器"><a href="#脉冲触发的触发器" class="headerlink" title="脉冲触发的触发器"></a>脉冲触发的触发器</h4><p>主从SR触发器</p>
+<p><img src="https://i.loli.net/2019/11/28/CeythnRzo3QkAxm.png" alt="主从SR触发器"></p>
+<p><img src="https://i.loli.net/2019/11/28/lNgzTPm2s1qjh4C.png" alt="图片.png"></p>
+<p>clk下降沿时Q变化</p>
+<p>JK触发器</p>
+<p><img src="https://i.loli.net/2019/11/28/FdKTA8B9ctMjJka.png" alt="JK触发器"></p>
+<h4 id="边沿触发器"><a href="#边沿触发器" class="headerlink" title="边沿触发器"></a>边沿触发器</h4><p>D触发器组成的边沿触发器</p>
+<p><img src="https://i.loli.net/2019/11/28/tZDQxP8lHA4g5R9.png" alt="D触发器组成的边沿触发器"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/" rel="tag"># 数字电路</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="next" title="计算机组成原理笔记">
+                  <i class="fa fa-chevron-left"></i> 计算机组成原理笔记
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/19/%E6%A6%82%E7%8E%87%E8%AE%BA/" rel="prev" title="概率论与数理统计笔记">
+                  概率论与数理统计笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数字电路"><span class="nav-number">1.</span> <span class="nav-text">数字电路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息与编码"><span class="nav-number">1.1.</span> <span class="nav-text">信息与编码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数制"><span class="nav-number">1.1.1.</span> <span class="nav-text">数制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#码制"><span class="nav-number">1.1.2.</span> <span class="nav-text">码制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑代数基础"><span class="nav-number">1.2.</span> <span class="nav-text">逻辑代数基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本公式"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本定理"><span class="nav-number">1.2.2.</span> <span class="nav-text">基本定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑函数表达方式"><span class="nav-number">1.2.3.</span> <span class="nav-text">逻辑函数表达方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑函数标准形式"><span class="nav-number">1.2.4.</span> <span class="nav-text">逻辑函数标准形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑函数的化简"><span class="nav-number">1.2.5.</span> <span class="nav-text">逻辑函数的化简</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#门电路"><span class="nav-number">1.3.</span> <span class="nav-text">门电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#coms反向器动态特性"><span class="nav-number">1.3.1.</span> <span class="nav-text">coms反向器动态特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OD门"><span class="nav-number">1.3.2.</span> <span class="nav-text">OD门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输门"><span class="nav-number">1.3.3.</span> <span class="nav-text">传输门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三态门"><span class="nav-number">1.3.4.</span> <span class="nav-text">三态门</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TTL门电路"><span class="nav-number">1.3.5.</span> <span class="nav-text">TTL门电路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合逻辑电路"><span class="nav-number">1.4.</span> <span class="nav-text">组合逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码器"><span class="nav-number">1.4.1.</span> <span class="nav-text">编码器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#译码器"><span class="nav-number">1.4.2.</span> <span class="nav-text">译码器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据选择器"><span class="nav-number">1.4.3.</span> <span class="nav-text">数据选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加法器"><span class="nav-number">1.4.4.</span> <span class="nav-text">加法器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#竞争-冒险现象"><span class="nav-number">1.4.5.</span> <span class="nav-text">竞争-冒险现象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时序逻辑电路"><span class="nav-number">1.5.</span> <span class="nav-text">时序逻辑电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发器"><span class="nav-number">1.5.1.</span> <span class="nav-text">触发器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电平触发的触发器"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">电平触发的触发器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脉冲触发的触发器"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">脉冲触发的触发器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#边沿触发器"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">边沿触发器</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Zmm"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Zmm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cppisgood" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;cppisgood" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zmm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">18k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'L3tBsaAjuwtP74GtQFhSOu5L-gzGzoHsz',
+    appKey: 'vaIJHUHoTVQSayvkmv6NePx2',
+    placeholder: "快来评论8！",
+    avatar: 'https://avatars1.githubusercontent.com/u/32269?v=3&s=460',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+  <link rel="mask-icon" href="/images/logo.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"flat"},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"bounceDownIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="lab-sh 啥都没说，上来就要写个shell，还是有点懵的。">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MIT-6.S081-lab-sh">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;back&#x2F;MIT-6.S081-lab-sh.html">
+<meta property="og:site_name" content="Zmm的博客">
+<meta property="og:description" content="lab-sh 啥都没说，上来就要写个shell，还是有点懵的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;01&#x2F;Dl3uYyzIT4md67v.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;01&#x2F;fd5lER4wzYuLIJV.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;01&#x2F;WiRVdXgqmQ4rl1U.png">
+<meta property="og:updated_time" content="2020-02-29T16:56:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;03&#x2F;01&#x2F;Dl3uYyzIT4md67v.png">
+
+<link rel="canonical" href="http://yoursite.com/back/MIT-6.S081-lab-sh">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false,
+    isPage: true,
+    isArchive: false
+  };
+</script>
+
+  <title>MIT-6.S081-lab-sh | Zmm的博客
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Zmm的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">MIT-6.S081-lab-sh
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><a href="https://pdos.csail.mit.edu/6.828/2019/labs/sh.html" target="_blank" rel="noopener">lab-sh</a></p>
+<p>啥都没说，上来就要写个shell，还是有点懵的。</p>
+<a id="more"></a>
+
+<p>想了想也就是exec乱搞下就好。</p>
+<p>xv6的sh.c里好像是用语法分析搞的，完全不会啊，于是就随便处理下字符串再调用就好了。。:（</p>
+<p>然而有很多东东实现不了，比如</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo hello world &gt; 1.txt</span><br><span class="line">grep hello &lt; 1.txt &gt; 2.txt | xargs echo miao</span><br></pre></td></tr></table></figure>
+
+<p>如果在我的shell执行的话，结果是这样的</p>
+<p><img src="https://i.loli.net/2020/03/01/Dl3uYyzIT4md67v.png" alt=""></p>
+<p>但是大概应该是这样的</p>
+<p><img src="https://i.loli.net/2020/03/01/fd5lER4wzYuLIJV.png" alt=""></p>
+<p>原因在于我的实现是将’|’作为完整命令之间的间隔，然后把左边的标准输出当做右边的标准输入</p>
+<p>但是左边的输出已经重定向到2.txt里了。。。所以左边的标准输出啥也没有，右边自然也就接收不到了。</p>
+<p>难道应该再把右边的标准输入重定向到2.txt上？算了，以后再研究8。。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"kernel/types.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"kernel/fcntl.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"kernel/param.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"user/user.h"</span></span></span><br><span class="line"><span class="keyword">char</span> whitespace[] = <span class="string">" \t\r\n\v"</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">iswhitespace</span><span class="params">(<span class="keyword">char</span> ch)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) <span class="keyword">if</span> (ch == whitespace[i]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">redirect</span><span class="params">(<span class="keyword">int</span> port, <span class="keyword">int</span> p[])</span> </span>&#123;</span><br><span class="line">  <span class="built_in">close</span>(port);</span><br><span class="line">  dup(p[port]);</span><br><span class="line">  <span class="built_in">close</span>(p[<span class="number">0</span>]);</span><br><span class="line">  <span class="built_in">close</span>(p[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getcmd</span><span class="params">(<span class="keyword">char</span> *buf, <span class="keyword">int</span> <span class="built_in">size</span>)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="number">2</span>, <span class="string">"@ "</span>);</span><br><span class="line">  <span class="built_in">memset</span>(buf, <span class="number">0</span>, <span class="built_in">size</span>);</span><br><span class="line">  gets(buf, <span class="built_in">size</span>);</span><br><span class="line">  <span class="keyword">if</span> (buf[<span class="number">0</span>] == <span class="string">'\0'</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">throw</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">fprintf</span>(<span class="number">2</span>, <span class="string">"throw: %s\n"</span>, s);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fork1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> pid = fork();</span><br><span class="line">  <span class="keyword">if</span> (pid == <span class="number">-1</span>) <span class="keyword">throw</span>(<span class="string">"fork"</span>);</span><br><span class="line">  <span class="keyword">return</span> pid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> tmp[<span class="number">128</span>], *<span class="built_in">point</span>[MAXARG], args[MAXARG][<span class="number">128</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">run</span><span class="params">(<span class="keyword">char</span> *st, <span class="keyword">char</span> *ed)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> reint = <span class="number">0</span>, reout = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span> *p1 = st, *p2 = st;</span><br><span class="line">  <span class="keyword">while</span> (p1 &lt; ed) &#123;</span><br><span class="line">    <span class="keyword">if</span> (*p1 == <span class="string">'&lt;'</span>) &#123;</span><br><span class="line">      reint = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    p1++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (p2 &lt; ed) &#123;</span><br><span class="line">    <span class="keyword">if</span> (*p2 == <span class="string">'&gt;'</span>) &#123;</span><br><span class="line">      reout = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    p2++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (reint) &#123;</span><br><span class="line">    p1++;</span><br><span class="line">    <span class="keyword">while</span> (p1 &lt; ed &amp;&amp; iswhitespace(*p1)) p1++;</span><br><span class="line">    <span class="keyword">char</span> *p1ed = p1;</span><br><span class="line">    <span class="keyword">while</span> (p1ed &lt; ed &amp;&amp; !iswhitespace(*p1ed)) p1ed++;</span><br><span class="line">    <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="built_in">memcpy</span>(tmp, p1, p1ed - p1);</span><br><span class="line">    <span class="built_in">close</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">open</span>(tmp, O_RDONLY);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (reout) &#123;</span><br><span class="line">    p2++;</span><br><span class="line">    <span class="keyword">while</span> (p2 &lt; ed &amp;&amp; iswhitespace(*p2)) p2++;</span><br><span class="line">    <span class="keyword">char</span> *p2ed = p2;</span><br><span class="line">    <span class="keyword">while</span> (p2ed &lt; ed &amp;&amp; !iswhitespace(*p2ed)) p2ed++;</span><br><span class="line">    <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="built_in">memcpy</span>(tmp, p2, p2ed - p2);</span><br><span class="line">    <span class="built_in">close</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="built_in">open</span>(tmp, O_WRONLY | O_CREATE);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>, argnum = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span> *p = st;</span><br><span class="line">  <span class="keyword">while</span> (p &lt; ed) &#123;</span><br><span class="line">    <span class="keyword">if</span> (*p == <span class="string">'&lt;'</span> || *p == <span class="string">'&gt;'</span>) <span class="keyword">break</span>;</span><br><span class="line">    <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="keyword">while</span> (p &lt; ed &amp;&amp; !iswhitespace(*p)) tmp[i++] = *p++;</span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memcpy</span>(args[argnum++], tmp, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="keyword">while</span> (p &lt; ed &amp;&amp; iswhitespace(*p)) p++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">point</span>[argnum] = <span class="number">0</span>;</span><br><span class="line">  exec(<span class="built_in">point</span>[<span class="number">0</span>], <span class="built_in">point</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">runcmd</span><span class="params">(<span class="keyword">char</span> *st, <span class="keyword">char</span> *ed)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">char</span> *p = st;</span><br><span class="line">  <span class="keyword">while</span> (p &lt; ed &amp;&amp; *p != <span class="string">'|'</span>) p++;</span><br><span class="line">  <span class="keyword">while</span> (st &lt; ed &amp;&amp; iswhitespace(*st)) st++;</span><br><span class="line">  <span class="keyword">if</span> (st == ed) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> pp[<span class="number">2</span>];</span><br><span class="line">  <span class="keyword">if</span> (*p == <span class="string">'|'</span>) &#123;</span><br><span class="line">    pipe(pp);</span><br><span class="line">    <span class="keyword">if</span> (fork()) &#123;</span><br><span class="line">      wait(<span class="number">0</span>);</span><br><span class="line">      redirect(<span class="number">0</span>, pp);</span><br><span class="line">      runcmd(p + <span class="number">1</span>, ed);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      redirect(<span class="number">1</span>, pp);</span><br><span class="line">      *p = <span class="string">'\0'</span>;</span><br><span class="line">      <span class="built_in">run</span>(st, p);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">run</span>(st, ed);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> fd;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">char</span> buf[<span class="number">128</span>];</span><br><span class="line">  <span class="keyword">while</span> ((fd = <span class="built_in">open</span>(<span class="string">"console"</span>, O_RDWR)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (fd &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">close</span>(fd);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAXARG; i++) <span class="built_in">point</span>[i] = args[i];</span><br><span class="line">  <span class="keyword">while</span> (getcmd(buf, <span class="number">128</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (buf[<span class="number">0</span>] == <span class="string">'c'</span> &amp;&amp; buf[<span class="number">1</span>] == <span class="string">'d'</span> &amp;&amp; buf[<span class="number">2</span>] == <span class="string">' '</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (chdir(buf + <span class="number">3</span>) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">fprintf</span>(<span class="number">2</span>, <span class="string">"cannot cd %s\n"</span>, buf + <span class="number">3</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (fork1() == <span class="number">0</span>) &#123;</span><br><span class="line">      runcmd(buf, buf + <span class="built_in">strlen</span>(buf));</span><br><span class="line">    &#125;</span><br><span class="line">    wait(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>面向样例编程（误</p>
+<p><img src="https://i.loli.net/2020/03/01/WiRVdXgqmQ4rl1U.png" alt=""></p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Zmm"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">Zmm</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cppisgood" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;cppisgood" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zmm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">18k</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'L3tBsaAjuwtP74GtQFhSOu5L-gzGzoHsz',
+    appKey: 'vaIJHUHoTVQSayvkmv6NePx2',
+    placeholder: "快来评论8！",
+    avatar: 'https://avatars1.githubusercontent.com/u/32269?v=3&s=460',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'zh-cn' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
