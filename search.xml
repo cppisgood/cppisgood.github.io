@@ -3,7 +3,7 @@
   <entry>
     <title>codeforces rating</title>
     <url>/2020/07/28/codeforces_rating/</url>
-    <content><![CDATA[<p>更新时间: 2020-09-22 15:30:01 </p>
+    <content><![CDATA[<p>更新时间: 2020-09-22 18:30:01 </p>
 <table>
 <thead>
 <tr>
@@ -243,136 +243,6 @@
       </tags>
   </entry>
   <entry>
-    <title>概率论与数理统计笔记</title>
-    <url>/2019/11/19/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
-    <content><![CDATA[<center><font size = 8>概率论与数理统计</font></center>
-<a id="more"></a>
-
-<p>模型化学习，将事物套入模型解释</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a>随机事件</h2><blockquote>
-<p>随机试验</p>
-<ol>
-<li>可重复进行</li>
-<li>所有结果可知</li>
-<li>不可预测结果</li>
-</ol>
-</blockquote>
-<p>随机试验的结果叫随机事件，一般用大写字母表示</p>
-<p>必然事件与不可能事件也是随机事件</p>
-<blockquote>
-<p>样本空间</p>
-<ol>
-<li>包含所有样本点</li>
-<li>可以无限大</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>完备事件组：样本空间的一个划分</p>
-</blockquote>
-<p>运算规律：</p>
-<ol>
-<li><p>交换律</p>
-</li>
-<li><p>结合律</p>
-</li>
-<li><p>交换律</p>
-</li>
-<li><p>德摩根律</p>
-<blockquote>
-<p>$\overline{A \cup B} = \overline{A} \cap \overline{B}$</p>
-<p>$ \overline{A \cap B} = \overline{A} \cup \overline{B} $</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="概率的定义及性质"><a href="#概率的定义及性质" class="headerlink" title="概率的定义及性质"></a>概率的定义及性质</h2><ol>
-<li>0 &lt;= p(A) &lt;= 1</li>
-<li>p($\Omega$) = 1</li>
-<li>p($\cup Ai$) = $\sum p(Ai)$ (Ai 与 Aj互不相容 i != j)</li>
-<li>P($A\cup B$) = P(A) + P(B) - P(AB);</li>
-</ol>
-<h2 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h2><ol>
-<li>$C_n^m + C_n^{m-1} = C_{n + 1}^m$</li>
-<li>样本点等可能性</li>
-</ol>
-<p>模型：</p>
-<ol>
-<li>抽签</li>
-<li>N个格子放n个球</li>
-</ol>
-<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p>P(A|B) = P(AB) / P(B)</p>
-<p>P(A|B) + P($\overline A | B$) = 1</p>
-<h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><blockquote>
-<p>Ｂ是一个完备事件组</p>
-<p>Ｐ(A) = $\sum \limits_{i=1} \limits^{n} P(B_i)P(A|B_i)$</p>
-</blockquote>
-<h3 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h3><blockquote>
-<p>$$P(B_j|A) =\frac {P(B_j)P(A|B_j)} {\sum \limits_{i=1} \limits^{n}{P(B_i)P(A|B_i)}}$$</p>
-</blockquote>
-<h3 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h3><p>若P(A|B) = P(A), 则A,B独立</p>
-<p>若A, B独立, 则AB’, A’B, AB’ 独立</p>
-<p><strong>注意区分事件互不相容与事件独立</strong></p>
-<p>对于多个事件,注意相互独立与两两独立的不同,相互独立必然要满足两两独立</p>
-<h1 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h1><h2 id="离散型随机变量"><a href="#离散型随机变量" class="headerlink" title="离散型随机变量"></a>离散型随机变量</h2><h3 id="重复独立试验"><a href="#重复独立试验" class="headerlink" title="重复独立试验"></a>重复独立试验</h3><blockquote>
-<p>彼此独立</p>
-<p>概率不变</p>
-</blockquote>
-<h3 id="伯努利试验（只有两个结果）"><a href="#伯努利试验（只有两个结果）" class="headerlink" title="伯努利试验（只有两个结果）"></a>伯努利试验（只有两个结果）</h3><ul>
-<li><p>两点分布（0-1分布）</p>
-<p>$E(x)=p$</p>
-<p>$D(x)=p(1-p)$</p>
-</li>
-<li><p>二项分布</p>
-<p>$p(B_k)=C_n^kp^kq^{n-k}$</p>
-<p>$E(x)=np$</p>
-<p>$D(x)=np(1-p)$</p>
-</li>
-<li><p>泊松分布</p>
-<p>$p(k)=\frac{\lambda^k} {k!}e^{-\lambda}$</p>
-<p>若$np_n$趋于$\lambda$，当n趋于正无穷时</p>
-<p>$b(k; n, p_n)$趋于$\frac{\lambda^k} {k!}e^{-\lambda}$(n大，p小，np大小适中)</p>
-</li>
-</ul>
-<h2 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h2><ol>
-<li>离散型随机变量用分布律</li>
-<li>非离散型用分布函数</li>
-</ol>
-<h3 id="均匀分布"><a href="#均匀分布" class="headerlink" title="均匀分布"></a>均匀分布</h3><p>概率密度是直线</p>
-<p>$U(a, b)$</p>
-<h3 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h3><p>无记忆性的随机分布</p>
-<p>$p(x)=\lambda e^{-\lambda x}(x&gt;0)$</p>
-<p>$F(x)=1-e^{-\lambda x}(x &gt; 0)$</p>
-<h3 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h3><p>$$p(x)=\frac {1}{\sigma \sqrt{2\pi}}e^{-\frac {(x-u)^2}{2\sigma^2}}$$</p>
-<p>标准分布</p>
-<blockquote>
-<p>当$\mu$等于0，$\sigma$等于1时，叫做标准正态分布<br>$$\phi(x)=\frac {1}{\sqrt{2\pi}}e^{-\frac {x^2}{2}}$$</p>
-</blockquote>
-<p>对一般正态分布做线性变换可以使一般正态分布变成标准正态分布(标准化变化)</p>
-<blockquote>
-<p>令$Y=\frac {x-\mu}{\sigma}$<br>则$p(Y)=\frac {1}{\sqrt{2\pi}}e^{-\frac {Y^2}{2}}$</p>
-</blockquote>
-<p>上分位点</p>
-<blockquote>
-<p>$p{x&gt;z_{\alpha}}&gt;a$<br>则z点为上分位点</p>
-</blockquote>
-<p>柯西分布</p>
-<blockquote>
-<p>$y=f(x)$</p>
-<p>反函数$x=h(y)$</p>
-<p>则$p(y)=p(h(y)|h’(y)|)$</p>
-</blockquote>
-<h1 id="二维随机变量"><a href="#二维随机变量" class="headerlink" title="二维随机变量"></a>二维随机变量</h1><p> $F(x,y)=P{X&lt;=x,Y&lt;=y}$为$(X,Y)$的联合分布函数</p>
-<p>概率密度为二维偏导数</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>学校课程</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数字电路笔记</title>
     <url>/2019/11/19/%E6%95%B0%E5%AD%97%E7%94%B5%E8%B7%AF/</url>
     <content><![CDATA[<h1 id="数字电路"><a href="#数字电路" class="headerlink" title="数字电路"></a>数字电路</h1><a id="more"></a>
@@ -545,6 +415,136 @@
       <tags>
         <tag>笔记</tag>
         <tag>数字电路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>概率论与数理统计笔记</title>
+    <url>/2019/11/19/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
+    <content><![CDATA[<center><font size = 8>概率论与数理统计</font></center>
+<a id="more"></a>
+
+<p>模型化学习，将事物套入模型解释</p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="随机事件"><a href="#随机事件" class="headerlink" title="随机事件"></a>随机事件</h2><blockquote>
+<p>随机试验</p>
+<ol>
+<li>可重复进行</li>
+<li>所有结果可知</li>
+<li>不可预测结果</li>
+</ol>
+</blockquote>
+<p>随机试验的结果叫随机事件，一般用大写字母表示</p>
+<p>必然事件与不可能事件也是随机事件</p>
+<blockquote>
+<p>样本空间</p>
+<ol>
+<li>包含所有样本点</li>
+<li>可以无限大</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>完备事件组：样本空间的一个划分</p>
+</blockquote>
+<p>运算规律：</p>
+<ol>
+<li><p>交换律</p>
+</li>
+<li><p>结合律</p>
+</li>
+<li><p>交换律</p>
+</li>
+<li><p>德摩根律</p>
+<blockquote>
+<p>$\overline{A \cup B} = \overline{A} \cap \overline{B}$</p>
+<p>$ \overline{A \cap B} = \overline{A} \cup \overline{B} $</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="概率的定义及性质"><a href="#概率的定义及性质" class="headerlink" title="概率的定义及性质"></a>概率的定义及性质</h2><ol>
+<li>0 &lt;= p(A) &lt;= 1</li>
+<li>p($\Omega$) = 1</li>
+<li>p($\cup Ai$) = $\sum p(Ai)$ (Ai 与 Aj互不相容 i != j)</li>
+<li>P($A\cup B$) = P(A) + P(B) - P(AB);</li>
+</ol>
+<h2 id="古典概型"><a href="#古典概型" class="headerlink" title="古典概型"></a>古典概型</h2><ol>
+<li>$C_n^m + C_n^{m-1} = C_{n + 1}^m$</li>
+<li>样本点等可能性</li>
+</ol>
+<p>模型：</p>
+<ol>
+<li>抽签</li>
+<li>N个格子放n个球</li>
+</ol>
+<h2 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h2><p>P(A|B) = P(AB) / P(B)</p>
+<p>P(A|B) + P($\overline A | B$) = 1</p>
+<h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><blockquote>
+<p>Ｂ是一个完备事件组</p>
+<p>Ｐ(A) = $\sum \limits_{i=1} \limits^{n} P(B_i)P(A|B_i)$</p>
+</blockquote>
+<h3 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h3><blockquote>
+<p>$$P(B_j|A) =\frac {P(B_j)P(A|B_j)} {\sum \limits_{i=1} \limits^{n}{P(B_i)P(A|B_i)}}$$</p>
+</blockquote>
+<h3 id="独立性"><a href="#独立性" class="headerlink" title="独立性"></a>独立性</h3><p>若P(A|B) = P(A), 则A,B独立</p>
+<p>若A, B独立, 则AB’, A’B, AB’ 独立</p>
+<p><strong>注意区分事件互不相容与事件独立</strong></p>
+<p>对于多个事件,注意相互独立与两两独立的不同,相互独立必然要满足两两独立</p>
+<h1 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h1><h2 id="离散型随机变量"><a href="#离散型随机变量" class="headerlink" title="离散型随机变量"></a>离散型随机变量</h2><h3 id="重复独立试验"><a href="#重复独立试验" class="headerlink" title="重复独立试验"></a>重复独立试验</h3><blockquote>
+<p>彼此独立</p>
+<p>概率不变</p>
+</blockquote>
+<h3 id="伯努利试验（只有两个结果）"><a href="#伯努利试验（只有两个结果）" class="headerlink" title="伯努利试验（只有两个结果）"></a>伯努利试验（只有两个结果）</h3><ul>
+<li><p>两点分布（0-1分布）</p>
+<p>$E(x)=p$</p>
+<p>$D(x)=p(1-p)$</p>
+</li>
+<li><p>二项分布</p>
+<p>$p(B_k)=C_n^kp^kq^{n-k}$</p>
+<p>$E(x)=np$</p>
+<p>$D(x)=np(1-p)$</p>
+</li>
+<li><p>泊松分布</p>
+<p>$p(k)=\frac{\lambda^k} {k!}e^{-\lambda}$</p>
+<p>若$np_n$趋于$\lambda$，当n趋于正无穷时</p>
+<p>$b(k; n, p_n)$趋于$\frac{\lambda^k} {k!}e^{-\lambda}$(n大，p小，np大小适中)</p>
+</li>
+</ul>
+<h2 id="分布函数"><a href="#分布函数" class="headerlink" title="分布函数"></a>分布函数</h2><ol>
+<li>离散型随机变量用分布律</li>
+<li>非离散型用分布函数</li>
+</ol>
+<h3 id="均匀分布"><a href="#均匀分布" class="headerlink" title="均匀分布"></a>均匀分布</h3><p>概率密度是直线</p>
+<p>$U(a, b)$</p>
+<h3 id="指数分布"><a href="#指数分布" class="headerlink" title="指数分布"></a>指数分布</h3><p>无记忆性的随机分布</p>
+<p>$p(x)=\lambda e^{-\lambda x}(x&gt;0)$</p>
+<p>$F(x)=1-e^{-\lambda x}(x &gt; 0)$</p>
+<h3 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h3><p>$$p(x)=\frac {1}{\sigma \sqrt{2\pi}}e^{-\frac {(x-u)^2}{2\sigma^2}}$$</p>
+<p>标准分布</p>
+<blockquote>
+<p>当$\mu$等于0，$\sigma$等于1时，叫做标准正态分布<br>$$\phi(x)=\frac {1}{\sqrt{2\pi}}e^{-\frac {x^2}{2}}$$</p>
+</blockquote>
+<p>对一般正态分布做线性变换可以使一般正态分布变成标准正态分布(标准化变化)</p>
+<blockquote>
+<p>令$Y=\frac {x-\mu}{\sigma}$<br>则$p(Y)=\frac {1}{\sqrt{2\pi}}e^{-\frac {Y^2}{2}}$</p>
+</blockquote>
+<p>上分位点</p>
+<blockquote>
+<p>$p{x&gt;z_{\alpha}}&gt;a$<br>则z点为上分位点</p>
+</blockquote>
+<p>柯西分布</p>
+<blockquote>
+<p>$y=f(x)$</p>
+<p>反函数$x=h(y)$</p>
+<p>则$p(y)=p(h(y)|h’(y)|)$</p>
+</blockquote>
+<h1 id="二维随机变量"><a href="#二维随机变量" class="headerlink" title="二维随机变量"></a>二维随机变量</h1><p> $F(x,y)=P{X&lt;=x,Y&lt;=y}$为$(X,Y)$的联合分布函数</p>
+<p>概率密度为二维偏导数</p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>学校课程</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
