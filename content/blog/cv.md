@@ -1,12 +1,14 @@
 +++
 title = "计算机视觉复习笔记"
-date = 2019-11-27
+date = 2021-07-02
 extra.math = true
+draft=false
 
-draft=true
 +++
 
+
 # 计算机视觉
+
 
 ## 图像处理
 
@@ -32,7 +34,7 @@ draft=true
 - 开运算（先腐蚀后膨胀）
 - 闭运算（先膨胀后腐蚀）
 
-> 结构元：奇形怪状的东东，比如 `<img src="https://i.loli.net/2021/06/30/E1gzVTfWjDoUsaG.png" alt="image-20210630203910970" style="zoom:50%;" />`
+> 结构元：奇形怪状的东东，比如 <img src="https://i.loli.net/2021/06/30/E1gzVTfWjDoUsaG.png" alt="image-20210630203910970" style="zoom:50%;" />
 >
 > 映像：180度旋转
 
@@ -41,7 +43,7 @@ draft=true
 #### 降噪
 
 - 盒式滤波器
-- 高斯滤波器`<img src="https://i.loli.net/2021/07/01/SosrWDkcY4G6h89.png" alt="image-20210701142324557" style="zoom:50%;" />`，可以将二维变成一维`<img src="https://i.loli.net/2021/07/01/R5JQDIp2s1zVbj8.png" alt="image-20210701144659994" style="zoom:50%;" />`
+- 高斯滤波器<img src="https://i.loli.net/2021/07/01/SosrWDkcY4G6h89.png" alt="image-20210701142324557" style="zoom:50%;" />，可以将二维变成一维<img src="https://i.loli.net/2021/07/01/R5JQDIp2s1zVbj8.png" alt="image-20210701144659994" style="zoom:50%;" />
 - 中值滤波（用于噪点多）
 
 #### 锐化
@@ -53,7 +55,7 @@ draft=true
 >
 > 二阶偏微分近似为$f(x+1,y)+f(x-1,y)-2f(x,y)$
 
-- 一阶微分算子 `<img src="https://i.loli.net/2021/07/01/t8HPxlqinCGO5JK.png" alt="image-20210701155644631" style="zoom:50%;" />`
+- 一阶微分算子 <img src="https://i.loli.net/2021/07/01/t8HPxlqinCGO5JK.png" alt="image-20210701155644631" style="zoom:50%;" />
 
   交叉Roberts![image-20210701155808222](https://i.loli.net/2021/07/01/TCt2rRvZ7J9M3Yq.png)![image-20210701160731563](https://i.loli.net/2021/07/01/k2YRpHWrLhtnmBU.png)
 
@@ -93,7 +95,7 @@ draft=true
 
 ### 角点检测
 
-1. 求出图像灰度值两个方向的梯度$I_x,I_y$`<img src="https://i.loli.net/2021/07/01/pqU3F1jsN4XGw6g.png" alt="image-20210701214127441" style="zoom: 67%;" />`
+1. 求出图像灰度值两个方向的梯度$I_x,I_y$<img src="https://i.loli.net/2021/07/01/pqU3F1jsN4XGw6g.png" alt="image-20210701214127441" style="zoom: 67%;" />
 2. 求出$I_x^2, I_y^2, I_xI_y$并用高斯核加权
-3. 计算每个像素的Harris响应度R，并设置低阈值，`<img src="https://i.loli.net/2021/07/01/d8TPb9jav5WUwhs.png" alt="image-20210701214425872" style="zoom: 67%;" />`
+3. 计算每个像素的Harris响应度R，并设置低阈值，<img src="https://i.loli.net/2021/07/01/d8TPb9jav5WUwhs.png" alt="image-20210701214425872" style="zoom: 67%;" />
 4. 在一个固定大小窗口（例如5x5）内进行非极大值抑制，局部极大值即为角点
