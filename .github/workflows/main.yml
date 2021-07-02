@@ -25,5 +25,5 @@ jobs:
         env:
           PAGES_BRANCH: master
           BUILD_DIR: .
-          TOKEN: ${{ secrets.PUBLIC_TOKEN }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: cppisgood/cppisgood.github.io
