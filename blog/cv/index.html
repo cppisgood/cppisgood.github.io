@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://blog.cppisgood.cf/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://blog.cppisgood.cf/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://blog.cppisgood.cf/main.css">
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>计算机视觉复习笔记</title>
+<meta name="description" content="">
+<link rel="canonical" href="https://blog.cppisgood.cf/blog/cv/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://blog.cppisgood.cf/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Blog",
+            "item": "https://blog.cppisgood.cf/blog/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Cv",
+            "item": "https://blog.cppisgood.cf/blog/cv/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.cppisgood.cf/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.cppisgood.cf/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.cppisgood.cf/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://blog.cppisgood.cf/site.webmanifest">
+  
+
+
+
+
+<!-- KaTeX -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+      <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+  integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"
+  integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"
+  integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false },
+        { left: '\\(', right: '\\)', display: false },
+        { left: '\\[', right: '\\]', display: true }
+      ],
+      // • rendering keys, e.g.:
+      throwOnError: false
+    });
+  });
+</script>
+
+
+
+</head>
+
+
+
+<body class="blog single">
+  
+
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://blog.cppisgood.cf/">AdiDoks</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				<li class="nav-item">
+					<a class="nav-link" href="https://twitter.com/aaranxu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg><span class="ms-2 visually-hidden">Twitter</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/aaranxu/adidoks"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+				</li>
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				<li class="nav-item">
+					<a class="nav-link" href="https://blog.cppisgood.cf/docs/">Docs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="https://blog.cppisgood.cf/blog/">Blog</a>
+				</li>
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+    <div class="content">
+        <div class="row justify-content-center">
+            
+
+<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+	<div class="page-links">
+		<h3>计算机视觉复习笔记</h3>
+		<nav id="TableOfContents">
+			<ul>
+				
+				<li><b><a href="https://blog.cppisgood.cf/blog/cv/#marrshi-jue-ji-suan-li-lun">Marr视觉计算理论</b></a>
+					
+				
+				<li><b><a href="https://blog.cppisgood.cf/blog/cv/#wu-li-xue-yu-ji-suan-ji-shi-jue">物理学与计算机视觉</b></a>
+					
+					<ul>
+						
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#shuang-xiang-fan-she-fen-bu-han-shu-brdf">双向反射分布函数BRDF</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#yan-se-biao-shi">颜色表示</a>
+							
+					</ul>
+				</li>
+				
+				
+				<li><b><a href="https://blog.cppisgood.cf/blog/cv/#tu-xiang-chu-li">图像处理</b></a>
+					
+					<ul>
+						
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#tu-xiang-lei-xing">图像类型</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#tu-xiang-dian-yun-suan">图像点运算</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#zhi-fang-tu-jun-heng-hua">直方图均衡化</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#shu-xue-xing-tai-xue">数学形态学</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#lu-bo">滤波</a>
+							
+					</ul>
+				</li>
+				
+				
+				<li><b><a href="https://blog.cppisgood.cf/blog/cv/#ju-bu-tu-xiang-te-zheng">局部图像特征</b></a>
+					
+					<ul>
+						
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#bian-yuan-jian-ce">边缘检测</a>
+							
+						<li><a href="https://blog.cppisgood.cf/blog/cv/#jiao-dian-jian-ce">角点检测</a>
+							
+					</ul>
+				</li>
+				
+				
+			</ul>
+		</nav>
+	</div>
+</nav>
+
+
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <article>
+                    <div class="blog-header">
+                        <h1>计算机视觉复习笔记</h1>
+                        
+<p><small>Posted July  2, 2021&nbsp;&hyphen;&nbsp;<strong>5&nbsp;min read</strong></small><p>
+
+                    </div>
+                    
+                    <p>计算机视觉</p>
+<h1 id="marrshi-jue-ji-suan-li-lun">Marr视觉计算理论</h1>
+<ul>
+<li>计算理论</li>
+<li>表示和算法</li>
+<li>硬件实现</li>
+</ul>
+<h1 id="wu-li-xue-yu-ji-suan-ji-shi-jue">物理学与计算机视觉</h1>
+<h2 id="shuang-xiang-fan-she-fen-bu-han-shu-brdf">双向反射分布函数BRDF</h2>
+<blockquote>
+<p>辐射度radiance（出射</p>
+<p>辐照度irradiance（入射</p>
+</blockquote>
+<p>辐射度=BRDF*辐照度</p>
+<h2 id="yan-se-biao-shi">颜色表示</h2>
+<h4 id="rgb">RGB</h4>
+<p><img src="https://i.loli.net/2021/07/03/Yo2iauNRlgwE8qp.png" alt="image-20210703154530447" /></p>
+<h4 id="hsv">HSV</h4>
+<p>Hue色调</p>
+<p>Saturation色饱和度</p>
+<p>Value明度</p>
+<h1 id="tu-xiang-chu-li">图像处理</h1>
+<h2 id="tu-xiang-lei-xing">图像类型</h2>
+<ul>
+<li>binary</li>
+<li>gray scale</li>
+<li>color</li>
+</ul>
+<h2 id="tu-xiang-dian-yun-suan">图像点运算</h2>
+<p>线性</p>
+<p>非线性</p>
+<ol>
+<li>
+<p>对数变换$s=\log_{10}(1+r)$</p>
+</li>
+<li>
+<p>幂次变换</p>
+<p>gamma矫正</p>
+<ol>
+<li>归一化</li>
+<li>$s=r^(1/gamma)$ gamma取2.2</li>
+<li>反归一化</li>
+</ol>
+</li>
+</ol>
+<h2 id="zhi-fang-tu-jun-heng-hua">直方图均衡化</h2>
+<ol>
+<li>灰度数组a[i32; L]，a[i]代表灰度值为i的像素所占百分比</li>
+<li>前缀和suma[i32: L]</li>
+<li>$b[i]=\lceil a[i]*(L-1) \rceil$</li>
+<li>像素值x变为b[x]</li>
+</ol>
+<h2 id="shu-xue-xing-tai-xue">数学形态学</h2>
+<h3 id="ji-ben-yun-suan">基本运算</h3>
+<ul>
+<li>膨胀（求绝对元映像范围内最大值）</li>
+<li>腐蚀（求绝对元范围内最小值）</li>
+<li>开运算（先腐蚀后膨胀）</li>
+<li>闭运算（先膨胀后腐蚀）</li>
+</ul>
+<blockquote>
+<p>结构元：奇形怪状的东东，比如 <img src="https://i.loli.net/2021/06/30/E1gzVTfWjDoUsaG.png" alt="image-20210630203910970" style="zoom:50%;" /></p>
+<p>映像：180度旋转</p>
+</blockquote>
+<h2 id="lu-bo">滤波</h2>
+<h3 id="jiang-zao">降噪</h3>
+<ul>
+<li>盒式滤波器</li>
+<li>高斯滤波器<img src="https://i.loli.net/2021/07/01/SosrWDkcY4G6h89.png" alt="image-20210701142324557" style="zoom:50%;" />，可以将二维变成一维<img src="https://i.loli.net/2021/07/01/R5JQDIp2s1zVbj8.png" alt="image-20210701144659994" style="zoom:50%;" /></li>
+<li>中值滤波（用于噪点多）</li>
+</ul>
+<h3 id="rui-hua">锐化</h3>
+<blockquote>
+<p>$\sqrt {x^2+y^2}通常近似为\left|x\right|+\left|y\right|$</p>
+<p>锐化就是原图值加上 卷积结果(原图的梯度图)
+一阶微分近似为 $f(x+1)-f(x)$</p>
+<p>二阶偏微分近似为$f(x+1,y)+f(x-1,y)-2f(x,y)$</p>
+</blockquote>
+<ul>
+<li>
+<p>一阶微分算子 <img src="https://i.loli.net/2021/07/01/t8HPxlqinCGO5JK.png" alt="image-20210701155644631" style="zoom:50%;" /></p>
+<p>交叉Roberts<img src="https://i.loli.net/2021/07/01/TCt2rRvZ7J9M3Yq.png" alt="image-20210701155808222" /><img src="https://i.loli.net/2021/07/01/k2YRpHWrLhtnmBU.png" alt="image-20210701160731563" /></p>
+<p>Sobel<img src="https://i.loli.net/2021/07/01/PdmVUh3zvckb2ei.png" alt="image-20210701155921754" /><img src="https://i.loli.net/2021/07/01/9ftJYpQ64GLH3ai.png" alt="image-20210701160705872" /></p>
+</li>
+<li>
+<p>二阶微分算子Laplace</p>
+<p><img src="https://i.loli.net/2021/07/01/MnjhNbAugZfxR4V.png" alt="image-20210701160804948" /><img src="https://i.loli.net/2021/07/01/9TqApBZYbJirFWG.png" alt="image-20210701160812712" /></p>
+</li>
+</ul>
+<h1 id="ju-bu-tu-xiang-te-zheng">局部图像特征</h1>
+<h2 id="bian-yuan-jian-ce">边缘检测</h2>
+<h3 id="ji-ben-lu-bo-qi">基本滤波器</h3>
+<p>边缘检测+原始图像==锐化（</p>
+<ul>
+<li>Sobel</li>
+<li>Prewitt<img src="https://i.loli.net/2021/07/01/235QOLZGBxqNwAb.png" alt="image-20210701165536737" /></li>
+<li>Roberts</li>
+</ul>
+<h3 id="chai-fen-gao-si-lu-bo">差分高斯滤波</h3>
+<blockquote>
+<p>常作为高斯拉普拉斯算子的近似</p>
+<p>高斯拉普拉斯就是先高斯再拉普拉斯，由于卷积符合结合律，可以直接对高斯核进行拉普拉斯。</p>
+</blockquote>
+<p>差分高斯滤波就是选择不同的标准差，把两个高斯相减</p>
+<p><img src="https://i.loli.net/2021/07/01/Fr4PNMx6GCU9RLD.png" alt="image-20210701170732461" /></p>
+<h3 id="canny">Canny</h3>
+<ol>
+<li>高斯降噪</li>
+<li>计算梯度幅值和方向（方向拟合为四个方向<img src="https://i.loli.net/2021/07/01/3HyaRsJdYEKN718.png" alt="image-20210701171326981" /></li>
+<li>非极大值抑制（只保留局部极大值，（比上下左右大？），使边缘变细）</li>
+<li>滞后阈值，设置高低阈值h、l，像素大于h或在l-h之间且连接着一个大于h的值才保留</li>
+</ol>
+<h2 id="jiao-dian-jian-ce">角点检测</h2>
+<ol>
+<li>求出图像灰度值两个方向的梯度$I_x,I_y$<img src="https://i.loli.net/2021/07/01/pqU3F1jsN4XGw6g.png" alt="image-20210701214127441" style="zoom: 67%;" /></li>
+<li>求出$I_x^2, I_y^2, I_xI_y$并用高斯核加权</li>
+<li>计算每个像素的Harris响应度R，并设置低阈值，<img src="https://i.loli.net/2021/07/01/d8TPb9jav5WUwhs.png" alt="image-20210701214425872" style="zoom: 67%;" /></li>
+<li>在一个固定大小窗口（例如5x5）内进行非极大值抑制，局部极大值即为角点</li>
+</ol>
+
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.netlify.com/">Netlify</a>, <a href="https://www.getzola.org/">Zola</a>, and <a href="https://github.com/aaranxu/adidoks">AdiDoks</a></li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://blog.cppisgood.cf/js/main.js" defer></script>
+
+  <script src="https://blog.cppisgood.cf/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://blog.cppisgood.cf/search_index.en.js" defer></script>
+  <script src="https://blog.cppisgood.cf/js/search.js" defer></script>
+
+  
+</body>
+</html>
